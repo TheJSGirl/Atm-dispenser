@@ -8,6 +8,13 @@
   pointer-events: none;
 }
 
+
+.heading {
+  display: flex;
+  justify-content: center;
+  background:	#9370DB;
+  color: white;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
