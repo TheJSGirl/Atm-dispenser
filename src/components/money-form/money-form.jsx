@@ -23,25 +23,26 @@ class MoneyForm extends Component {
     render() {
         return (
             <div className="money-form">
-                <div className="form" >
-                    <h1 className="form-heading">Welcome to ATM</h1>
-                    <div>
-                        <div> <label>Enter Amount</label></div>
-                        <input
-                            className="form-input"
-                            type="text"
-                            value={this.state.money}
-                            name="money"
-                            onChange={this.handleOnchange}
-
-                        />
+                <div className="demo">
+                    <div className="form" >
+                        <h1 className="form-heading">Welcome to ATM</h1>
+                        <div>
+                            <div> <label>Enter Amount</label></div>
+                            <input
+                                className="form-input"
+                                type="text"
+                                value={this.state.money}
+                                name="money"
+                                onChange={this.handleOnchange}
+                            />
+                        </div>
+                        <div className="form-btn">
+                            <button className="btn" onClick={this.handleOnclick}>Get Money</button>
+                        </div>
                     </div>
-                    <div className="form-btn">
-                        <button className="btn" onClick={this.handleOnclick}>Get Money</button>
+                    <div className="notes">
+                        <Notes />
                     </div>
-
-                    <Notes />
-
                 </div>
             </div>
         )
