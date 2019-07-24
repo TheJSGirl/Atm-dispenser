@@ -1,0 +1,27 @@
+.money-form {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 90vh;
+    border: 2px solid black;
+}
+
+.form-heading {
+   font-size: 20px; 
+}
+.form-input {
+    width: 18vw;
+    height: 8vh;
+    border-radius: 10px;
+}
+.form-btn {
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    width: 19vw;
+    height: 10vh;
+    background: #1264d0;
+    margin-top: 8px;
+    color: white;
+}
