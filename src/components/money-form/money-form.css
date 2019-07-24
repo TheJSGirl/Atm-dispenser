@@ -1,8 +1,8 @@
 .money-form {
     display: flex;
-    flex-direction: column;
-    width: 50vw;
-    height: 90vh;
+    flex-direction: row;
+    width: 99vw;
+    height: 50vh;
     border: 2px solid black;
 }
 
@@ -11,16 +11,22 @@
 }
 .form-input {
     width: 18vw;
-    height: 8vh;
+    height: 6vh;
     border-radius: 10px;
 }
 .form-btn {
     display: flex;
     justify-content: center;
 }
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    justify-content: center;
+}
 .btn {
     width: 19vw;
-    height: 10vh;
+    height: 5vh;
     background: #1264d0;
     margin-top: 8px;
     color: white;
