@@ -17,8 +17,7 @@ class MoneyForm extends Component {
         this.setState({ money: event.target.value })
     }
     handleOnclick() {
-        console.log('hello')
-
+        this.setState({ money: "" });
     }
     render() {
         return (
@@ -40,9 +39,9 @@ class MoneyForm extends Component {
                             <button className="btn" onClick={this.handleOnclick}>Get Money</button>
                         </div>
                     </div>
-                    <div className="notes">
-                        <Notes />
-                    </div>
+                    {this.state.money && <div className="notes">
+                        <Notes money={this.state.money} />
+                    </div>}
                 </div>
             </div>
         )
