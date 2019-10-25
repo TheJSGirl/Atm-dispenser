@@ -14,7 +14,7 @@ class MoneyForm extends Component {
 
     handleOnchange(event) {
         event.preventDefault();
-        this.setState({ money: event.target.value })
+        this.setState({ money: event.target.value <= 50000 ? event.target.value : 50000 })
     }
     handleOnclick() {
         this.setState({ money: "" });
@@ -26,11 +26,12 @@ class MoneyForm extends Component {
                     <div className="form" >
                         <h1 className="form-heading">Welcome to ATM</h1>
                         <div>
-                            <div> <label>Enter Amount</label></div>
+                            <div><label>Enter Amount</label></div>
                             <input
                                 className="form-input"
                                 type="text"
                                 value={this.state.money}
+                                placeholder=" Avilable Balance: ₹50,000"
                                 name="money"
                                 onChange={this.handleOnchange}
                             />
@@ -40,7 +41,7 @@ class MoneyForm extends Component {
                         </div>
                     </div>
                     {this.state.money && <div className="notes">
-                        <Notes money={this.state.money} />
+                        <Notes money={this.state.money} balance={50000} />
                     </div>}
                 </div>
             </div>
