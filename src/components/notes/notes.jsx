@@ -5,36 +5,32 @@ const notes = [2000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
 
 class Notes extends Component {
 
+  getNotes = (money, balance) => {
+    let currentMoney = money;
+    let notesMap = {};
+    let count = 0;
+    notes.map(note => {
+      notesMap[note] = parseInt(currentMoney / note, 10);
+      count += notesMap[note];
+      currentMoney = currentMoney % note;
+    });
 
-    getNotes = (money) => {
-       let currentMoney = money;
-       let notesMap = {};
-       let count = 0;
-       for(let a = 0; a < notes.length; a++ ){
-           
-            notesMap[notes[a]] = parseInt(currentMoney / notes[a], 10);
-            count += notesMap[notes[a]]; 
-            currentMoney = currentMoney % notes[a];
-       }
+    return { total: count, data: notesMap, remaining: balance - money };
+  }
 
-       return { total: count, data: notesMap };
-    }
-
-    render() {
-        const {money} =  this.props;
-        let {total, data} = this.getNotes(money);
-        return (
-            <React.Fragment>
-                <h2 className="note-heading">You will get the following amount</h2>
-                <div>
-                    <ul>
-                        <li>Total note despensed: {total}</li>
-                    </ul>
-                </div>
-              <div>{JSON.stringify(data)}</div>
-            </React.Fragment>
-        )
-    }
+  render() {
+    const { money, balance } = this.props;
+    let { total, data, remaining } = this.getNotes(money, balance);
+    return (
+      <div>
+        <h2 className="note-heading">Transaction Details</h2>
+        <h3>Total note dispensed: {total}</h3>
+        <h3>Denominations </h3>
+        <h4>{notes.map(note => { if (data[note] > 0) return `${note}'s Note : ${data[note]} , ` })}</h4>
+        <h3>Remaining Amount: ₹{remaining}</h3>
+      </div>
+    )
+  }
 }
 
 export default Notes;
